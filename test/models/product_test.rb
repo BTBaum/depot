@@ -36,6 +36,7 @@ class ProductTest < ActiveSupport::TestCase
 					price:       1,
 					image_url:   image_url)
 	end
+
 	test "image url" do
 		ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
 				 http://a.b.c/x/y/z/fred.gif }
@@ -46,6 +47,7 @@ class ProductTest < ActiveSupport::TestCase
 		bad.each do |name|
 			assert new_product.invalid?, "#{name} should not be valid"
 		end
+	end
 
 	test "product us not valid without a unique title - i18n" do 
 		product = Product.new(title:       products(:ruby).title,
